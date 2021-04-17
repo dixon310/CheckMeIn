@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">CheckMeIn</string>
+    <string name="app_title">CheckMeIn title</string>
+    <string name="StID">Student ID</string>
+    <string name="StName">Student Name</string>
+    <string name="students_Count">X students</string>
+    <string name="lblStudentName">Student Name:</string>
+    <string name="txtStudentName">Student Name</string>
+    <string name="txtStudentID">Student ID</string>
+    <string name="lblStudentID">Student ID:</string>
+    <string name="AddStudent">Add Student</string>
+    <string name="Submit">Submit</string>
+    <string name="Save">Save</string>
+</resources>
