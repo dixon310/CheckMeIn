@@ -11,4 +11,5 @@
     <string name="AddStudent">Add Student</string>
     <string name="Submit">Submit</string>
     <string name="Save">Save</string>
+    <string name="btnRemove">Remove</string>
 </resources>

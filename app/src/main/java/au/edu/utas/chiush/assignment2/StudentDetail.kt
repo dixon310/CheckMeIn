@@ -35,6 +35,23 @@ class StudentDetail: AppCompatActivity() {
 
                 }
 
+                ui.btnRemove.setOnClickListener{
+                        val db = Firebase.firestore
+                        var studentsCollection = db.collection("students")
+                        studentsCollection.document(studentObject.id!!)
+                                .delete()
+                                .addOnSuccessListener {
+                                        Log.d(FIREBASE_TAG, "DocumentSnapshot successfully deleted!")
+                                        finish()
+                                }
+
+                                .addOnFailureListener { e ->
+                                        Log.w(FIREBASE_TAG, "Error deleting document", e)
+                                }
+
+
+                }
+
 
         }
 }

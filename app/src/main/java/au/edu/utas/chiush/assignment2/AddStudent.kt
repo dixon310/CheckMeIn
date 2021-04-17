@@ -45,12 +45,11 @@ class AddStudent: AppCompatActivity() {
                 var studentsCollection = db.collection("students")
                 studentsCollection
                         .add(lotr)
-
                         .addOnSuccessListener {
                             Log.d(FIREBASE_TAG, "Document created with id ${it.id}")
                             lotr.id = it.id
-                            (ui2.myList.adapter as StudentAdapter).notifyDataSetChanged()
-                            finish()
+                            //
+                            (ui2.myList.adapter as MainActivity.StudentAdapter).notifyDataSetChanged()
                         }
                         .addOnFailureListener {
                             Log.e(FIREBASE_TAG, "Error writing document", it)
@@ -85,9 +84,11 @@ class AddStudent: AppCompatActivity() {
 
 
     }
+/*
     override fun onResume(){
         super.onResume()
-        ui2.myList.adapter?.notifyDataSetChanged()
+        ui.myList.adapter?.notifyDataSetChanged()
     }
 
+ */
 }
