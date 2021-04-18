@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import au.edu.utas.chiush.assignment2.databinding.ActivityMainBinding
 import au.edu.utas.chiush.assignment2.databinding.AddStudentActivityBinding
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
 class AddStudent: AppCompatActivity() {
@@ -37,20 +38,33 @@ class AddStudent: AppCompatActivity() {
                 val txtStudentName = ui.txtStudentName.text
                 val txtStudentID = ui.txtStudentID. text
 
-                val lotr = Student(
-                        studentName = txtStudentName?.toString(),
-                        studentID = txtStudentID?.toString()
-                )
+               // val lotr = Student(
+              //          studentName = txtStudentName?.toString(),
+               //         studentID = txtStudentID?.toString() )
 
                 var studentsCollection = db.collection("students")
                 studentsCollection
-                        .add(lotr)
+                        .add(hashSetOf(
+                                "studentName" to txtStudentName?.toString(),
+                                "studentID" to txtStudentID?.toString()
+
+                        ))
                         .addOnSuccessListener {
                             Log.d(FIREBASE_TAG, "Document created with id ${it.id}")
-                            lotr.id = it.id
-                            //
-                            (ui2.myList.adapter as MainActivity.StudentAdapter).notifyDataSetChanged()
+                            (ui2.myList?.adapter as StudentAdapter).notifyDataSetChanged()
+
                         }
+                        /*
+                        .add(lotr)
+
+                        .addOnSuccessListener {
+                            Log.d(FIREBASE_TAG, "Document created with id ${it.id}")
+                                lotr.id = it.id
+
+                            (ui2.myList?.adapter as MainActivity.StudentAdapter).notifyDataSetChanged()
+
+                         */
+
                         .addOnFailureListener {
                             Log.e(FIREBASE_TAG, "Error writing document", it)
                         }
