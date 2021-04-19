@@ -16,7 +16,8 @@
         android:text="@string/StName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/txteditStudentID"
@@ -28,7 +29,8 @@
         android:text="@string/StID"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txteditStudentName" />
+        app:layout_constraintTop_toBottomOf="@+id/txteditStudentName"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/btnSave"

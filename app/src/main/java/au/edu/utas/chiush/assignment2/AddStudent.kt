@@ -10,24 +10,21 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import au.edu.utas.chiush.assignment2.databinding.ActivityMainBinding
 import au.edu.utas.chiush.assignment2.databinding.AddStudentActivityBinding
+import au.edu.utas.chiush.assignment2.databinding.StudentListBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
 class AddStudent: AppCompatActivity() {
     private lateinit var ui: AddStudentActivityBinding
-    private lateinit var ui2: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ui = AddStudentActivityBinding.inflate(layoutInflater)
         setContentView(ui.root)
 
-        ui2 = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(ui.root)
-
         val db = Firebase.firestore
-       // val studentID = intent.getIntExtra(STUDENT_INDEX, -1)
+        val studentID = intent.getIntExtra(STUDENT_INDEX, -1)
        // var studentObject = items[studentID]
 
         //database /*need to add data from this end*/
@@ -38,33 +35,18 @@ class AddStudent: AppCompatActivity() {
                 val txtStudentName = ui.txtStudentName.text
                 val txtStudentID = ui.txtStudentID. text
 
-               // val lotr = Student(
-              //          studentName = txtStudentName?.toString(),
-               //         studentID = txtStudentID?.toString() )
+                val lotr = Student(
+                        studentName = txtStudentName?.toString(),
+                        studentID = txtStudentID?.toString())
 
                 var studentsCollection = db.collection("students")
                 studentsCollection
-                        .add(hashSetOf(
-                                "studentName" to txtStudentName?.toString(),
-                                "studentID" to txtStudentID?.toString()
-
-                        ))
-                        .addOnSuccessListener {
-                            Log.d(FIREBASE_TAG, "Document created with id ${it.id}")
-                            (ui2.myList?.adapter as StudentAdapter).notifyDataSetChanged()
-
-                        }
-                        /*
                         .add(lotr)
-
                         .addOnSuccessListener {
                             Log.d(FIREBASE_TAG, "Document created with id ${it.id}")
-                                lotr.id = it.id
-
-                            (ui2.myList?.adapter as MainActivity.StudentAdapter).notifyDataSetChanged()
-
-                         */
-
+                            lotr.id = it.id
+                            finish()
+                        }
                         .addOnFailureListener {
                             Log.e(FIREBASE_TAG, "Error writing document", it)
                         }
@@ -82,27 +64,30 @@ class AddStudent: AppCompatActivity() {
         }
 
     }
+    inner class StudentHolder(var ui: StudentListBinding): RecyclerView.ViewHolder(ui.root) {}
 
-    inner class StudentAdapter(private val students: MutableList<Student>): RecyclerView.Adapter<MainActivity.StudentHolder>() {
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainActivity.StudentHolder {
+    inner class StudentAdapter(private val students: MutableList<Student>): RecyclerView.Adapter<StudentHolder>() {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddStudent.StudentHolder {
             TODO("Not yet implemented")
+            val ui = StudentListBinding.inflate(layoutInflater, parent, false)
+            return StudentHolder(ui)
+        }
+        override fun onBindViewHolder(holder: AddStudent.StudentHolder, position: Int) {
+            TODO("Not yet implemented")
+
         }
 
-        override fun onBindViewHolder(holder: MainActivity.StudentHolder, position: Int) {
-            TODO("Not yet implemented")
-        }
 
         override fun getItemCount(): Int {
             TODO("Not yet implemented")
         }
 
 
-    }
-/*
-    override fun onResume(){
-        super.onResume()
-        ui.myList.adapter?.notifyDataSetChanged()
+
+
     }
 
- */
+
+
+
 }
