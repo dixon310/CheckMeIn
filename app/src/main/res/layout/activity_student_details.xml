@@ -51,4 +51,15 @@
         android:text="@string/btnRemove"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txteditStudentID" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/weekList"
+        android:layout_width="407dp"
+        android:layout_height="542dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.984" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -49,7 +49,6 @@ class StudentDetail: AppCompatActivity() {
                                         Log.w(FIREBASE_TAG, "Error deleting document", e)
                                 }
 
-
                 }
 
 

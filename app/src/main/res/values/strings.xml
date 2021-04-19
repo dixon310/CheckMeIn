@@ -12,4 +12,5 @@
     <string name="Submit">Submit</string>
     <string name="Save">Save</string>
     <string name="btnRemove">Remove</string>
+    <string name="lblWeek">Week X</string>
 </resources>
