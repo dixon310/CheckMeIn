@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
@@ -45,11 +46,12 @@ class AddStudent: AppCompatActivity() {
                         .addOnSuccessListener {
                             Log.d(FIREBASE_TAG, "Document created with id ${it.id}")
                             lotr.id = it.id
-                            finish()
+                            Toast.makeText(applicationContext, "Successfully create student ${lotr.studentID}", Toast.LENGTH_SHORT).show()
                         }
                         .addOnFailureListener {
                             Log.e(FIREBASE_TAG, "Error writing document", it)
                         }
+                finish()
             }else{
                 //Alert box
                 val builder = AlertDialog.Builder(this)

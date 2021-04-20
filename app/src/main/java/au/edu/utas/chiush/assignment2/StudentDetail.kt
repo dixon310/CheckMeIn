@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,10 +17,28 @@ import com.google.firebase.ktx.Firebase
 
 class StudentDetail: AppCompatActivity() {
         private lateinit var ui: ActivityStudentDetailsBinding
-        override fun onCreate(savedInstanceState: Bundle?){
+        override fun onCreate(savedInstanceState: Bundle?) {
                 super.onCreate(savedInstanceState)
                 ui = ActivityStudentDetailsBinding.inflate(layoutInflater)
                 setContentView(ui.root)
+
+                val db = Firebase.firestore
+                var studentsCollection = db.collection("students")
+
+                //get all students
+                studentsCollection
+                        .get()
+                        .addOnSuccessListener { result ->
+                                Log.d(FIREBASE_TAG, "----- all students -----")
+                                for (document in result) {
+                                        val student = document.toObject<Student>()
+                                        student.id = document.id
+                                        Log.d(FIREBASE_TAG, student.toString())
+
+                                        items.add(student)
+
+                                }
+                        }
 
                 val studentID = intent.getIntExtra(STUDENT_INDEX, -1)
                 var studentObject = items[studentID]
@@ -27,7 +46,7 @@ class StudentDetail: AppCompatActivity() {
                 ui.txteditStudentName.setText(studentObject.studentName)
                 ui.txteditStudentID.setText(studentObject.studentID)
 
-                ui.btnSave.setOnClickListener{
+                ui.btnSave.setOnClickListener {
                         studentObject.studentName = ui.txteditStudentName.text.toString()
                         studentObject.studentID = ui.txteditStudentID.text.toString()
 
@@ -37,18 +56,20 @@ class StudentDetail: AppCompatActivity() {
                                 .set(studentObject)
                                 .addOnSuccessListener {
                                         Log.d(FIREBASE_TAG, "Successfully updated student ${studentObject?.id}")
+                                        Toast.makeText(applicationContext,"${studentObject?.studentID} has been updated !", Toast.LENGTH_SHORT).show()
                                         finish()
                                 }
 
                 }
 
-                ui.btnRemove.setOnClickListener{
+                ui.btnRemove.setOnClickListener {
                         val db = Firebase.firestore
                         var studentsCollection = db.collection("students")
                         studentsCollection.document(studentObject.id!!)
                                 .delete()
                                 .addOnSuccessListener {
                                         Log.d(FIREBASE_TAG, "DocumentSnapshot successfully deleted!")
+                                        Toast.makeText(applicationContext,"${studentObject?.studentID} has been Remove!", Toast.LENGTH_SHORT).show()
                                         finish()
                                 }
 
@@ -59,57 +80,6 @@ class StudentDetail: AppCompatActivity() {
                 }
 
 
-                //ui of student numbers
-                //ui.weekList.adapter = StudentAdapter(students = items)
-
-                //vertical list
-                ui.weekList.layoutManager = LinearLayoutManager(this)
-
-
-                //database /*need to add data from this end*/
-                val db = Firebase.firestore
-                var studentsCollection = db.collection("students")
-                studentsCollection
-                        .get()
-                        .addOnSuccessListener { result ->
-                                Log.d(FIREBASE_TAG,"----- all Weeks -----")
-                                for (document in result)
-                                {
-                                        val week = document.toObject<Student>()
-                                        week.id = document.id
-                                        Log.d(FIREBASE_TAG, week.toString())
-
-                                        items.add(week)
-                                        //(ui.weekList.adapter as WeekAdapter).notifyDataSetChanged()
-                                }
-                        }
-
         }
 
-        inner class WeekHolder(var ui: WeekListBinding): RecyclerView.ViewHolder(ui.root) {}
-
-        inner class WeekAdapter(private val weeks: MutableList<Week>): RecyclerView.Adapter<WeekHolder>() {
-                override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeekHolder {
-                        TODO("Not yet implemented")
-                }
-
-                override fun onBindViewHolder(holder: WeekHolder, position: Int) {
-                        TODO("Not yet implemented")
-                        val week = weeks[position]   //get the data at the requested position
-                        holder.ui.lblWeek.text = week.weekNo
-
-                        // add clicked on the listing item
-                        holder.ui.root.setOnClickListener {
-                                var i = Intent(holder.ui.root.context, StudentDetail::class.java)
-                                i.putExtra(STUDENT_INDEX, position)
-                                startActivity(i)
-                        }
-                }
-
-                override fun getItemCount(): Int {
-                        TODO("Not yet implemented")
-                }
-        }
 }
-
-

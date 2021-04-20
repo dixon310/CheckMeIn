@@ -29,11 +29,7 @@ class MainActivity : AppCompatActivity() {
         ui = ActivityMainBinding.inflate(layoutInflater)
         setContentView(ui.root)
 
-        //Add button function
-        ui.btnToAddStudent.setOnClickListener {
-            val i = Intent(this, AddStudent::class.java)
-            startActivity(i)
-        }
+
 
         //ui of student numbers
         ui.lblStudentCount.text = "${items.size} student"
@@ -64,6 +60,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
+        //Add button function
+        ui.btnToAddStudent.setOnClickListener {
+            val i = Intent(this, AddStudent::class.java)
+            startActivity(i)
+        }
     }
 
 

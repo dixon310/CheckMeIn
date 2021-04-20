@@ -13,4 +13,19 @@
     <string name="Save">Save</string>
     <string name="btnRemove">Remove</string>
     <string name="lblWeek">Week X</string>
+        <string-array name="weeks_array">
+            <item>Week 1</item>
+            <item>Week 2</item>
+            <item>Week 3</item>
+            <item>Week 4</item>
+            <item>Week 5</item>
+            <item>Week 6</item>
+            <item>Week 7</item>
+            <item>Week 8</item>
+            <item>Week 9</item>
+            <item>Week 10</item>
+            <item>Week 11</item>
+            <item>Week 12</item>
+            <item>Week 13</item>
+        </string-array>
 </resources>
