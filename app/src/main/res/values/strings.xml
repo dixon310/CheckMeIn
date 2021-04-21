@@ -10,10 +10,14 @@
     <string name="lblStudentID">Student ID:</string>
     <string name="AddStudent">Add Student</string>
     <string name="Submit">Submit</string>
-    <string name="Save">Save</string>
+    <string name="Save">Update</string>
     <string name="btnRemove">Remove</string>
     <string name="lblWeek">Week X</string>
-        <string-array name="weeks_array">
+    <string name="lblMarkingInfo">Please select week and input Marking</string>
+    <string name="lblSelectedWeek">Week:</string>
+    <string name="lblMark">Mark:</string>
+    <string-array name="weeks_array">
+            <item>------</item>
             <item>Week 1</item>
             <item>Week 2</item>
             <item>Week 3</item>
@@ -28,4 +32,13 @@
             <item>Week 12</item>
             <item>Week 13</item>
         </string-array>
+    <string-array name="Marks_array">
+        <item>--</item>
+        <item>NN</item>
+        <item>PP</item>
+        <item>CR</item>
+        <item>DN</item>
+        <item>HD</item>
+        <item>HD+</item>
+    </string-array>
 </resources>

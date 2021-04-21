@@ -17,8 +17,10 @@ import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
 val items = mutableListOf<Student>()
+val weekitems = mutableListOf<Week>()
 const val FIREBASE_TAG = "FirebaseLogging"
 const val STUDENT_INDEX = "Student_Index"
+const val WEEK_INDEX = "Week_Index"
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,8 +30,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         ui = ActivityMainBinding.inflate(layoutInflater)
         setContentView(ui.root)
-
-
 
         //ui of student numbers
         ui.lblStudentCount.text = "${items.size} student"
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
 
     inner class StudentHolder(var ui: StudentListBinding): RecyclerView.ViewHolder(ui.root) {}
 
-    inner class StudentAdapter(private val students: MutableList<Student>): RecyclerView.Adapter<StudentHolder>() {
+    inner class StudentAdapter(val students: MutableList<Student>): RecyclerView.Adapter<StudentHolder>() {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentHolder {
                 val ui = StudentListBinding.inflate(layoutInflater, parent, false)
                 return StudentHolder(ui)
@@ -100,6 +100,23 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume(){
         super.onResume()
-        ui.myList.adapter?.notifyDataSetChanged()
+        val db = Firebase.firestore
+        var studentsCollection = db.collection("students")
+        studentsCollection
+                .get()
+                .addOnSuccessListener { result ->
+                    Log.d(FIREBASE_TAG,"----- all students -----")
+                    items.clear()
+                    for (document in result)
+                    {
+                        val student = document.toObject<Student>()
+                        student.id = document.id
+                        Log.d(FIREBASE_TAG, student.toString())
+
+
+                        items.add(student)
+                        (ui.myList.adapter as StudentAdapter).notifyDataSetChanged()
+                    }
+                }
     }
 }

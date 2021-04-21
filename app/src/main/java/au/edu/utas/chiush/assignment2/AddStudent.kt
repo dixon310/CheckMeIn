@@ -36,11 +36,14 @@ class AddStudent: AppCompatActivity() {
                 val txtStudentName = ui.txtStudentName.text
                 val txtStudentID = ui.txtStudentID. text
 
+
                 val lotr = Student(
                         studentName = txtStudentName?.toString(),
-                        studentID = txtStudentID?.toString())
+                        studentID = txtStudentID?.toString()
+                )
 
-                var studentsCollection = db.collection("students")
+
+                val studentsCollection = db.collection("students")
                 studentsCollection
                         .add(lotr)
                         .addOnSuccessListener {
@@ -89,7 +92,28 @@ class AddStudent: AppCompatActivity() {
 
     }
 
+    override fun onResume(){
+        super.onResume()
+        val db = Firebase.firestore
+        var studentsCollection = db.collection("students")
 
+        //get all students
+        studentsCollection
+                .get()
+                .addOnSuccessListener { result ->
+                    Log.d(FIREBASE_TAG,"----- all students -----")
+                    for (document in result)
+                    {
+                        val student = document.toObject<Student>()
+                        student.id = document.id
+                        Log.d(FIREBASE_TAG, student.toString())
+
+
+                    }
+  //                  (ui.MainActivity.myList.adapter as MainActivity.StudentAdapter).notifyDataSetChanged()
+                }
+
+    }
 
 
 }
