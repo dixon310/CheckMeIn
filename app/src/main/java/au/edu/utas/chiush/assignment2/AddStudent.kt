@@ -99,6 +99,7 @@ class AddStudent: AppCompatActivity() {
         studentsCollection
                 .get()
                 .addOnSuccessListener { result ->
+                    items.clear()
                     Log.d(FIREBASE_TAG,"----- all students -----")
                     for (document in result)
                     {

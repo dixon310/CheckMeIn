@@ -5,6 +5,251 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/lblWeek13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Week 13"
+        app:layout_constraintStart_toStartOf="@+id/lblWeek12"
+        app:layout_constraintTop_toBottomOf="@+id/lblWeek12" />
+
+    <TextView
+        android:id="@+id/lblDisplayMark13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="-----"
+        app:layout_constraintStart_toStartOf="@+id/lblDisplayMark12"
+        app:layout_constraintTop_toBottomOf="@+id/lblDisplayMark12" />
+
+    <TextView
+        android:id="@+id/lblWeek6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="528dp"
+        android:text="Week 6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblDisplayMark6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="172dp"
+        android:text="-----"
+        app:layout_constraintStart_toEndOf="@+id/lblWeek1"
+        app:layout_constraintTop_toTopOf="@+id/lblWeek1" />
+
+    <TextView
+        android:id="@+id/lblWeek7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:text="Week 7"
+        app:layout_constraintEnd_toEndOf="@+id/btnRemove"
+        app:layout_constraintTop_toBottomOf="@+id/btnRemove" />
+
+    <TextView
+        android:id="@+id/lblDisplayMark7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:text="-----"
+        app:layout_constraintStart_toEndOf="@+id/lblWeek7"
+        app:layout_constraintTop_toTopOf="@+id/lblWeek7" />
+
+    <TextView
+        android:id="@+id/lblWeek8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Week 8"
+        app:layout_constraintStart_toStartOf="@+id/lblWeek7"
+        app:layout_constraintTop_toBottomOf="@+id/lblWeek7" />
+
+    <TextView
+        android:id="@+id/lblDisplayMark9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:text="-----"
+        app:layout_constraintStart_toEndOf="@+id/lblWeek9"
+        app:layout_constraintTop_toBottomOf="@+id/lblDisplayMark8" />
+
+    <TextView
+        android:id="@+id/lblDisplayMark8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:text="-----"
+        app:layout_constraintStart_toEndOf="@+id/lblWeek8"
+        app:layout_constraintTop_toBottomOf="@+id/lblDisplayMark7" />
+
+    <TextView
+        android:id="@+id/lblWeek9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Week 9"
+        app:layout_constraintStart_toStartOf="@+id/lblWeek8"
+        app:layout_constraintTop_toBottomOf="@+id/lblWeek8" />
+
+    <TextView
+        android:id="@+id/lblDisplayMark10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:text="-----"
+        app:layout_constraintStart_toEndOf="@+id/lblWeek10"
+        app:layout_constraintTop_toBottomOf="@+id/lblDisplayMark9" />
+
+    <TextView
+        android:id="@+id/lblDisplayMark11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="-----"
+        app:layout_constraintStart_toStartOf="@+id/lblDisplayMark10"
+        app:layout_constraintTop_toBottomOf="@+id/lblDisplayMark10" />
+
+    <TextView
+        android:id="@+id/lblDisplayMark12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="-----"
+        app:layout_constraintStart_toStartOf="@+id/lblDisplayMark11"
+        app:layout_constraintTop_toBottomOf="@+id/lblDisplayMark11" />
+
+    <TextView
+        android:id="@+id/lblWeek10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Week 10"
+        app:layout_constraintStart_toStartOf="@+id/lblWeek9"
+        app:layout_constraintTop_toBottomOf="@+id/lblWeek9" />
+
+    <TextView
+        android:id="@+id/lblWeek11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Week 11"
+        app:layout_constraintStart_toStartOf="@+id/lblWeek10"
+        app:layout_constraintTop_toBottomOf="@+id/lblWeek10" />
+
+    <TextView
+        android:id="@+id/lblWeek12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Week 12"
+        app:layout_constraintStart_toStartOf="@+id/lblWeek11"
+        app:layout_constraintTop_toBottomOf="@+id/lblWeek11" />
+
+    <TextView
+        android:id="@+id/lblWeek5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="496dp"
+        android:text="Week 5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblDisplayMark5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="140dp"
+        android:text="-----"
+        app:layout_constraintStart_toEndOf="@+id/lblWeek1"
+        app:layout_constraintTop_toTopOf="@+id/lblWeek1" />
+
+    <TextView
+        android:id="@+id/lblWeek4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="460dp"
+        android:text="Week 4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblDisplayMark4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="104dp"
+        android:text="-----"
+        app:layout_constraintStart_toEndOf="@+id/lblWeek1"
+        app:layout_constraintTop_toTopOf="@+id/lblWeek1" />
+
+    <TextView
+        android:id="@+id/lblWeek3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="428dp"
+        android:text="Week 3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblDisplayMark3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="72dp"
+        android:text="-----"
+        app:layout_constraintStart_toEndOf="@+id/lblWeek1"
+        app:layout_constraintTop_toTopOf="@+id/lblWeek1" />
+
+    <TextView
+        android:id="@+id/lblWeek2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="388dp"
+        android:text="Week 2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblDisplayMark2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:text="-----"
+        app:layout_constraintStart_toEndOf="@+id/lblWeek1"
+        app:layout_constraintTop_toTopOf="@+id/lblWeek1" />
+
     <EditText
         android:id="@+id/txteditStudentName"
         android:layout_width="wrap_content"
@@ -154,16 +399,28 @@
         android:id="@+id/lblWeek1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="356dp"
         android:text="Week 1"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="360dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/lblDisplayMark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="398dp" />
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:text="-----"
+        app:layout_constraintStart_toEndOf="@+id/lblWeek1"
+        app:layout_constraintTop_toTopOf="@+id/lblWeek1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
