@@ -1,26 +1,21 @@
 package au.edu.utas.chiush.assignment2
 
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import au.edu.utas.chiush.assignment2.databinding.ActivityMainBinding
 import au.edu.utas.chiush.assignment2.databinding.StudentListBinding
-import com.google.firebase.firestore.core.View
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
 val items = mutableListOf<Student>()
-val weekitems = mutableListOf<Week>()
 const val FIREBASE_TAG = "FirebaseLogging"
 const val STUDENT_INDEX = "Student_Index"
-const val WEEK_INDEX = "Week_Index"
 
 class MainActivity : AppCompatActivity() {
 
@@ -98,7 +93,7 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
-
+//Refresh page****
     override fun onResume(){
         super.onResume()
         val db = Firebase.firestore

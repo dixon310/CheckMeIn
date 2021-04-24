@@ -11,12 +11,10 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.*
-import android.widget.AdapterView.OnItemSelectedListener
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import au.edu.utas.chiush.assignment2.databinding.ActivityStudentDetailsBinding
-import com.google.firebase.firestore.core.View
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
@@ -79,7 +77,6 @@ class StudentDetail: AppCompatActivity() {
 
                 val db = Firebase.firestore
                 var studentsCollection = db.collection("students")
-                var weeksCollection = db.collection("weeks")
 
 
                 val studentID = intent.getIntExtra(STUDENT_INDEX, -1)
@@ -121,7 +118,7 @@ class StudentDetail: AppCompatActivity() {
                                 .delete()
                                 .addOnSuccessListener {
                                         Log.d(FIREBASE_TAG, "DocumentSnapshot successfully deleted!")
-                                        Toast.makeText(applicationContext, "${studentObject?.studentID} has been Remove!", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(applicationContext, "${studentObject?.studentID} has been Removed!", Toast.LENGTH_SHORT).show()
                                         finish()
                                 }
 

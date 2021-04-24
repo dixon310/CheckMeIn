@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import au.edu.utas.chiush.assignment2.databinding.ActivityMainBinding
 import au.edu.utas.chiush.assignment2.databinding.AddStudentActivityBinding
 import au.edu.utas.chiush.assignment2.databinding.StudentListBinding
 import com.google.firebase.firestore.ktx.firestore
@@ -23,9 +22,6 @@ class AddStudent: AppCompatActivity() {
         setContentView(ui.root)
 
         val db = Firebase.firestore
-        val studentID = intent.getIntExtra(STUDENT_INDEX, -1)
-       // var studentObject = items[studentID]
-
         //database /*need to add data from this end*/
         //Add student
         ui.btnAddStudent.setOnClickListener {
@@ -34,12 +30,10 @@ class AddStudent: AppCompatActivity() {
                 val txtStudentName = ui.txtStudentName.text
                 val txtStudentID = ui.txtStudentID. text
 
-
                 val lotr = Student(
                         studentName = txtStudentName?.toString(),
                         studentID = txtStudentID?.toString()
                 )
-
 
                 val studentsCollection = db.collection("students")
                 studentsCollection
@@ -47,7 +41,7 @@ class AddStudent: AppCompatActivity() {
                         .addOnSuccessListener {
                             Log.d(FIREBASE_TAG, "Document created with id ${it.id}")
                             lotr.id = it.id
-                            Toast.makeText(applicationContext, "Successfully create student ${lotr.studentID}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(applicationContext, "Successfully created student ${lotr.studentID}", Toast.LENGTH_SHORT).show()
                         }
                         .addOnFailureListener {
                             Log.e(FIREBASE_TAG, "Error writing document", it)
@@ -80,13 +74,9 @@ class AddStudent: AppCompatActivity() {
 
         }
 
-
         override fun getItemCount(): Int {
             TODO("Not yet implemented")
         }
-
-
-
 
     }
 
@@ -109,7 +99,6 @@ class AddStudent: AppCompatActivity() {
 
 
                     }
-  //                  (ui.MainActivity.myList.adapter as MainActivity.StudentAdapter).notifyDataSetChanged()
                 }
 
     }
